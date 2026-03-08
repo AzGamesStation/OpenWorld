@@ -1,0 +1,39 @@
+AdPackage
+
+1.0 
+Added 
+
+   public string[] Adjust_LevelCompleteTokens = { "8oy2x1", "e0u0re", "21swqw", "bre9y4", "7r8ink" };
+   public string Adjust_adrevenue_key;
+
+  public void AdjustFacebook_CompleteEvent(int level_num)
+  {
+      if (level_num <= Adjust_LevelCompleteTokens.Length)
+      {
+          AdjustEvent adjustEvent = new AdjustEvent(Adjust_LevelCompleteTokens[level_num]);
+          Adjust.trackEvent(adjustEvent);
+      }
+  }
+
+  1.1
+  Modify 
+            AppmetricaAnalytics Class
+
+        static YandexAppMetricaAdRevenue.AdTypeEnum GetAdType(AdFormat format)
+        {
+        switch (format)
+        {
+           ....
+            case AdFormat.AppOpen: return YandexAppMetricaAdRevenue.AdTypeEnum.Other;
+            case AdFormat.Collapsible: return YandexAppMetricaAdRevenue.AdTypeEnum.Other;
+            case AdFormat.RewardedInter: return YandexAppMetricaAdRevenue.AdTypeEnum.Other;
+           ....
+        }
+    }
+
+  Removed => Adjust_LevelCompleteTokens from AnalyticsManager
+
+  1.2
+   - Removed => AdjustFacebookAdRevenueEvent() from AnalyticsManager
+   - Modify function ReportRevenue_Admob() parameters  
+          public static void ReportRevenue_Admob(double revenue, AdFormat format, string adUnit, string PlacementName = null)
