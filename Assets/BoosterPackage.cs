@@ -30,8 +30,8 @@ public class BoosterPackage : MonoBehaviour
 
     public void NoThanksBtn()
     {
-        if (GlobalContants.Ad_time <= 0)
-            AdsManager.instance.ShowInterstitial("Booster");
+        //if (GlobalContants.Ad_time <= 0)
+        //    AdsManager.instance.ShowInterstitial("Booster");
         this.gameObject.SetActive(false);
         adscaller.SetActive(false);
 

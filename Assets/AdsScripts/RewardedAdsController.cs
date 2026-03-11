@@ -22,7 +22,7 @@ public class RewardedAdsController : MonoBehaviour
         {
             if (AdsManager.instance)
             {
-                AdsManager.instance.ShowRewardedAd(placement);
+                //AdsManager.instance.ShowRewardedAd(placement);
             }
         }
         else

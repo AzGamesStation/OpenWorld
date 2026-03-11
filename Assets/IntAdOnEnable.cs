@@ -6,6 +6,6 @@ public class IntAdOnEnable : MonoBehaviour
 {
     private void OnEnable()
     {
-        AdsManager.instance.ShowInterstitial("OnEnable");
+        //AdsManager.instance.ShowInterstitial("OnEnable");
     }
 }

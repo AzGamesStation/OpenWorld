@@ -1,0 +1,16 @@
+namespace Game.Character.CharacterController
+{
+	public enum DamageType
+	{
+		Instant,
+		MeleeHit,
+		Bullet,
+		Explosion,
+		Water,
+		Collision,
+		Energy,
+		Bubble,
+		Net,
+		Ballon
+	}
+}

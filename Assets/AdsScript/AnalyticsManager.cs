@@ -243,66 +243,7 @@ public class AnalyticsManager : MonoBehaviour
 
     #region 
 
-    public void AdjustRevReport_Max(string adUnitId, MaxSdkBase.AdInfo impressionData)
-    {
-        double revenue = impressionData.Revenue;
-        AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceAppLovinMAX);
-        adjustAdRevenue.setRevenue(revenue, "USD");
-        adjustAdRevenue.setAdRevenueNetwork(impressionData.NetworkName);
-        adjustAdRevenue.setAdRevenueUnit($"{impressionData.AdFormat}_{impressionData.AdUnitIdentifier}");
-        Adjust.trackAdRevenue(adjustAdRevenue);
 
-        AppmetricaAnalytics.AdFormat _adFormat = AppmetricaAnalytics.AdFormat.None;
-
-        string maxAdFormat = impressionData.AdFormat.ToString();
-        if (maxAdFormat != null)
-        {
-            if (maxAdFormat.Equals("BANNER"))
-            {
-                _adFormat = AppmetricaAnalytics.AdFormat.Banner;
-            }
-            else if (maxAdFormat.Equals("INTER"))
-            {
-                _adFormat = AppmetricaAnalytics.AdFormat.Interstitial;
-            }
-            else if (maxAdFormat.Equals("REWARDED"))
-            {
-                _adFormat = AppmetricaAnalytics.AdFormat.Rewarded;
-            }
-            else if (maxAdFormat.Equals("APPOPEN"))
-            {
-                _adFormat = AppmetricaAnalytics.AdFormat.AppOpen;
-            }
-        }
-        AppmetricaAnalytics.ReportRevenue_Applovin(impressionData, _adFormat);
-
-        if (firebasecall1.firebaseInitialized)
-        {
-            var impressionParameters = new[] {
-          new Firebase.Analytics.Parameter("ad_platform", "AppLovin"),
-          new Firebase.Analytics.Parameter("ad_source", impressionData.NetworkName),
-          new Firebase.Analytics.Parameter("ad_unit_name", impressionData.AdUnitIdentifier),
-          new Firebase.Analytics.Parameter("ad_format", impressionData.AdFormat),
-          new Firebase.Analytics.Parameter("value", revenue),
-          new Firebase.Analytics.Parameter("currency", "USD"),
-        };
-            if (impressionData.NetworkName == "AdMob" ||
-                impressionData.NetworkName == "Google Ad Manager Native" ||
-                impressionData.NetworkName == "Google AdMob")
-            {
-                return;
-            }
-            else
-            {
-                Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
-
-                if (impressionData.AdFormat.Equals("INTER"))
-                    Firebase.Analytics.FirebaseAnalytics.LogEvent("paid_int_" + GlobalConstant.ad_placement_name_inter, impressionParameters);
-                if (impressionData.AdFormat.Equals("REWARDED"))
-                    Firebase.Analytics.FirebaseAnalytics.LogEvent("paid_Rwd_" + GlobalConstant.ad_placement_name_rwd, impressionParameters);
-            }
-        }
-    }
     public void AdjustRevReport_Admob(double _rev, AppmetricaAnalytics.AdFormat ad_formate, string ad_unitId)
     {
         AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AdjustAdRevenueSourceAdMob);

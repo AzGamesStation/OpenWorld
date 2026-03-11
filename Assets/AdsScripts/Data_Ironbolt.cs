@@ -200,7 +200,7 @@ public class Data_Ironbolt : MonoBehaviour
             GlobalContants.gemsPack3 = false;
             GlobalContants.gemsCounterpack3++;
 
-            FindObjectOfType<BuyGems>().UpdateGemsCounterText(GlobalContants.gemsCounterpack3, 4);
+            FindAnyObjectByType<BuyGems>().UpdateGemsCounterText(GlobalContants.gemsCounterpack3, 4);
             if (GlobalContants.gemsCounterpack3 >= 4)
             {
                 int gems;

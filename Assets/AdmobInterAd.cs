@@ -7,6 +7,6 @@ public class AdmobInterAd : MonoBehaviour
     private void OnEnable()
     {
         //AdsMediatorManager.instance.ShowInterstitial();
-        AdsManager.instance.ShowInterstitial("PickUpAd");
+        //AdsManager.instance.ShowInterstitial("PickUpAd");
     }
 }

@@ -12,6 +12,6 @@ public class BannerOnLevelComplete : MonoBehaviour
 
     private void OnDisable()
     {
-        AdsManager.instance.ShowMaxBanner();//comment
+       // AdsManager.instance.ShowMaxBanner();//comment
     }
 }

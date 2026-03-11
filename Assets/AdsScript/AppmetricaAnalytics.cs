@@ -17,20 +17,20 @@ public static class AppmetricaAnalytics
         AppMetrica.Instance.ReportAdRevenue(rev);
     }
 
-    public static void ReportRevenue_Applovin(MaxSdkBase.AdInfo maxAd, AdFormat format, string PlacementName = null)
-    {
-        if (maxAd == null) return;
-        double revenue = maxAd.Revenue;
+    //public static void ReportRevenue_Applovin(MaxSdkBase.AdInfo maxAd, AdFormat format, string PlacementName = null)
+    //{
+    //    if (maxAd == null) return;
+    //    double revenue = maxAd.Revenue;
 
-        YandexAppMetricaAdRevenue rev = new YandexAppMetricaAdRevenue(revenue, "USD");
-        rev.AdType = GetAdType(format);
-        rev.AdNetwork = maxAd.NetworkName;
-        rev.AdUnitId = maxAd.AdUnitIdentifier;
-        if (!string.IsNullOrEmpty(PlacementName)/* && isValidPlacementName(format)*/)
-            rev.AdPlacementName = PlacementName.ToLower();
+    //    YandexAppMetricaAdRevenue rev = new YandexAppMetricaAdRevenue(revenue, "USD");
+    //    rev.AdType = GetAdType(format);
+    //    rev.AdNetwork = maxAd.NetworkName;
+    //    rev.AdUnitId = maxAd.AdUnitIdentifier;
+    //    if (!string.IsNullOrEmpty(PlacementName)/* && isValidPlacementName(format)*/)
+    //        rev.AdPlacementName = PlacementName.ToLower();
 
-        AppMetrica.Instance.ReportAdRevenue(rev);
-    }
+    //    AppMetrica.Instance.ReportAdRevenue(rev);
+    //}
 
     static YandexAppMetricaAdRevenue.AdTypeEnum GetAdType(AdFormat format)
     {

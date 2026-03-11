@@ -8,6 +8,6 @@ public class IntAdThrower : MonoBehaviour
 
     public void ShowAd()
     {
-        AdsManager.instance.ShowInterstitial("AdThrowerer");
+        //AdsManager.instance.ShowInterstitial("AdThrowerer");
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameAnalyticsSDK;
 using com.adjust.sdk;
-using static MaxSdkCallbacks;
+//using static MaxSdkCallbacks;
 
 [Serializable]
 public class ADMobID

@@ -53,8 +53,8 @@ public class ShowPickUpAd : MonoBehaviour
 
     public void ShowAd()
     {
-        if (GlobalContants.Ad_time <= 0)
-            AdsManager.instance.ShowInterstitial("PickUpAd");
+        //if (GlobalContants.Ad_time <= 0)
+        //    AdsManager.instance.ShowInterstitial("PickUpAd");
         //ADsShower.ShowInterstital(false);
         Time.timeScale = 1;
         GlobalContants.cashPickUp = false;
