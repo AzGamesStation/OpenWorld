@@ -248,8 +248,12 @@ namespace Game.Character
                 case VehicleType.Car:
                     if(LastDrivableVehicle.tag=="TryVehicle")
                     {
-                        GlobalContants.tryVehicle = true;
-                        RewardedAdsController.Instance.ShowRewarded("FreeCar");
+                        //we turned off
+                        // GlobalContants.tryVehicle = true;
+                        // RewardedAdsController.Instance.ShowRewarded("FreeCar");
+
+                        GetInOutCar(isIn: true);
+                        AddObstacle(LastDrivableVehicle);
                     }
                     else
                     {
